@@ -1,8 +1,8 @@
 package com.example.myapp
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.design.widget.NavigationView
+import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
@@ -59,11 +59,17 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
         val fragment = when (id){
 
 
-            R.id.nav_camera -> {
+            R.id.nav_main -> {
                 Main2Activity ()
             }
 
+            R.id.nav_puntos -> {
+                main_game ()
+            }
 
+            R.id.nav_salir -> {
+                this.salir()
+            }
 
             else -> {
                 Main2Activity()
@@ -72,7 +78,7 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
 
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.relativelayout, fragment)
+            .replace(R.id.relativelayout, fragment as Fragment)
             .commit()
 
     }
@@ -83,4 +89,9 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
         return true
     }
 
+    private fun salir() {
+        this.finish()
+    }
+
 }
+
