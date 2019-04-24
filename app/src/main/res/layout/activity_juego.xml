@@ -18,14 +18,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_puntaje" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp" android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"/>
+            android:layout_marginStart="8dp" android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/textoApp" app:fontFamily="sans-serif" android:typeface="serif"
+            android:textSize="15sp"/>
     <TextView
             android:text="@string/indicacion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_indicaciones" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/tv_puntaje" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="16dp" android:layout_marginStart="16dp"/>
+            android:layout_marginLeft="16dp" android:layout_marginStart="16dp" android:textColor="@color/textoApp"
+            app:fontFamily="sans-serif" android:typeface="serif" android:textSize="15sp"/>
     <ImageView
             android:layout_width="92dp"
             android:layout_height="86dp"
@@ -39,28 +42,32 @@
             android:layout_height="wrap_content"
             android:id="@+id/tv_vs" android:layout_marginTop="16dp"
             app:layout_constraintTop_toBottomOf="@+id/iv_input" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="156dp" android:layout_marginStart="156dp"/>
+            android:layout_marginLeft="156dp" android:layout_marginStart="156dp" android:textColor="@color/textoApp"
+            app:fontFamily="sans-serif" android:typeface="serif" android:textSize="15sp"/>
     <TextView
             android:text="@string/parte_IA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_IA" android:layout_marginTop="12dp"
             app:layout_constraintTop_toBottomOf="@+id/tv_vs" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="160dp" android:layout_marginStart="160dp"/>
+            android:layout_marginLeft="160dp" android:layout_marginStart="160dp" android:textColor="@color/textoApp"
+            app:fontFamily="sans-serif" android:typeface="serif" android:textSize="15sp"/>
     <TextView
             android:text="@string/indicacion2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_indicaciones2" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginTop="12dp"
-            app:layout_constraintTop_toBottomOf="@+id/iv_output"/>
+            app:layout_constraintTop_toBottomOf="@+id/iv_output" android:textColor="@color/textoApp"
+            app:fontFamily="sans-serif" android:typeface="serif" android:textSize="15sp"/>
     <Button
             android:text="@string/piedra"
             android:layout_width="88dp"
             android:layout_height="38dp"
             android:id="@+id/btn_piedra" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp" android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/tv_indicaciones2"/>
+            app:layout_constraintTop_toBottomOf="@+id/tv_indicaciones2" android:textColor="@color/textoButton"
+            android:background="@color/btn_color"/>
     <Button
             android:text="@string/papel"
             android:layout_width="77dp"
@@ -68,7 +75,8 @@
             android:id="@+id/btn_papel" app:layout_constraintStart_toEndOf="@+id/btn_piedra"
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp" android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/tv_indicaciones2"/>
+            app:layout_constraintTop_toBottomOf="@+id/tv_indicaciones2" android:textColor="@color/textoButton"
+            android:background="@color/btn_color"/>
     <Button
             android:text="@string/tijera"
             android:layout_width="81dp"
@@ -76,14 +84,16 @@
             android:id="@+id/btn_tijera" app:layout_constraintStart_toEndOf="@+id/btn_papel"
             android:layout_marginLeft="24dp"
             android:layout_marginStart="24dp" android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/tv_indicaciones2"/>
+            app:layout_constraintTop_toBottomOf="@+id/tv_indicaciones2" android:textColor="@color/textoButton"
+            android:background="@color/btn_color"/>
     <Button
             android:text="@string/lagartija"
             android:layout_width="129dp"
             android:layout_height="47dp"
             android:id="@+id/btn_lagartija"
             app:layout_constraintTop_toBottomOf="@+id/btn_papel" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="44dp" android:layout_marginStart="44dp" android:layout_marginTop="16dp"/>
+            android:layout_marginLeft="44dp" android:layout_marginStart="44dp" android:layout_marginTop="16dp"
+            android:textColor="@color/textoButton" android:background="@color/btn_color"/>
     <Button
             android:text="@string/spock"
             android:layout_width="84dp"
@@ -91,7 +101,8 @@
             android:id="@+id/btn_spock" app:layout_constraintStart_toEndOf="@+id/btn_lagartija"
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/btn_papel" android:layout_marginTop="16dp"/>
+            app:layout_constraintTop_toBottomOf="@+id/btn_papel" android:layout_marginTop="16dp"
+            android:textColor="@color/textoButton" android:background="@color/btn_color"/>
     <Button
             android:text="@string/exitCross"
             android:layout_width="46dp"
