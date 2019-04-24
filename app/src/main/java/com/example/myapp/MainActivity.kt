@@ -66,11 +66,11 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
             }
 
             R.id.nav_inicio -> {
-                main_game ()
+                inicioJuego ()
             }
 
             R.id.nav_puntos -> {
-                main_game ()
+                inicioJuego ()
             }
 
             R.id.nav_guide -> {
@@ -108,5 +108,9 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
         startActivity(intent)
     }
 
+    private fun inicioJuego(){
+        val intent = Intent(this, main_game::class.java)
+        startActivity(intent)
+    }
 }
 

@@ -12,6 +12,8 @@ import kotlinx.android.synthetic.main.activity_juego.*
 @Suppress("DEPRECATED_IDENTITY_EQUALS")
 class juego : AppCompatActivity(), View.OnClickListener{
 
+    private var valorin = 0
+    private var valorout = 3
     private var input: ImageView? = null
     private var output: ImageView? = null
     private var rock: Button? = null
@@ -161,7 +163,11 @@ class juego : AppCompatActivity(), View.OnClickListener{
             1-> Toast.makeText(applicationContext, "GANA", Toast.LENGTH_SHORT).show()
             else-> Toast.makeText(applicationContext, "EMPATE", Toast.LENGTH_SHORT).show()
         }
+        valorin ++
         Toast.makeText(applicationContext, "Seleccione otra opción", Toast.LENGTH_SHORT).show()
+        if (valorin == valorout){
+            jugar()
+        }
     }
 
     private fun jugar() {
