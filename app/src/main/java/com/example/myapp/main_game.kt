@@ -23,9 +23,9 @@ class main_game : AppCompatActivity(), View.OnClickListener  {
         val boton5: Button = findViewById(R.id.btncinco)
         val boton7: Button = findViewById(R.id.btnsiete)
 
-        boton3.setOnClickListener { iniciarJuego() }
-        boton5.setOnClickListener { iniciarJuego() }
-        boton7.setOnClickListener { iniciarJuego() }
+        boton3.setOnClickListener { iniciarJuego("3") }
+        boton5.setOnClickListener { iniciarJuego("5") }
+        boton7.setOnClickListener { iniciarJuego("7") }
 
         btnExit2.setOnClickListener {
             salir()
@@ -38,10 +38,12 @@ class main_game : AppCompatActivity(), View.OnClickListener  {
 
     }
 
-    private fun iniciarJuego() {
+    private fun iniciarJuego(variable: String) {
         val intent = Intent(this, juego::class.java)
+        intent.putExtra("variableI", variable)
         startActivity(intent)
     }
+
     private fun salir() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
