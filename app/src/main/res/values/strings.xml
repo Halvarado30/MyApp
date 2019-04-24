@@ -46,4 +46,8 @@
     <string name="previous">ANTERIOR</string>
     <string name="instruccion">INSTRUCCIONES</string>
 
+    <!-- Petición de nombre -->
+    <string name="q_username">Ingrese su nombre:</string>
+    <string name="hint_string">nombre</string>
+
 </resources>

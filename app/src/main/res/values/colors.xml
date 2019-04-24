@@ -10,5 +10,6 @@
 
     <!-- botones -->
     <color name="btn_color">#63A4FF</color>
+    <color name="btngray">#AAAAAA</color>
 
 </resources>

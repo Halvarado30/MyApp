@@ -9,9 +9,14 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".Instrucciones">
+        <activity android:name=".CargaPuntaje2"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".Registro_usuario">
+        <activity android:name=".Instrucciones"
+                  android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".Registro_usuario"
+                  android:screenOrientation="portrait">
         </activity>
         <activity
                 android:name=".main_game"

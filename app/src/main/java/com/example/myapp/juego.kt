@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
+import com.example.myapp.Model.UserModel
 import com.example.myapp.Model.UsersDBHelper
 import kotlinx.android.synthetic.main.activity_juego.*
 
@@ -32,6 +33,8 @@ class juego : AppCompatActivity(), View.OnClickListener{
 
     var images = intArrayOf(R.drawable.piedra, R.drawable.papel, R.drawable.tijera, R.drawable.lagartija, R.drawable.spock)
     var userinput = 0
+
+    lateinit var UsersDBHelper : UsersDBHelper
 
     override fun onCreate(savedInstanceState: Bundle?)  {
 

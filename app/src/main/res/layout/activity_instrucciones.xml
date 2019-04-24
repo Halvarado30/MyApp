@@ -18,7 +18,8 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Button" android:fontFamily="sans-serif"
             android:textColor="@color/textoButton"
             android:background="@color/btn_color" app:layout_constraintStart_toEndOf="@+id/btnAnterior"
-            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.644" android:typeface="sans"/>
+            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.644" android:typeface="sans"
+            android:textStyle="bold"/>
     <Button
             android:text="@string/exitCross"
             android:layout_width="44dp"
