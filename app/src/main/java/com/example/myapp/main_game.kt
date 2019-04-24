@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_main_game.*
 @Suppress("DEPRECATED_IDENTITY_EQUALS")
 class main_game : AppCompatActivity(), View.OnClickListener  {
     override fun onClick(v: View?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        TODO("not implemented")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
