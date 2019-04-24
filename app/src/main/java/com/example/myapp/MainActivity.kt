@@ -1,5 +1,6 @@
 package com.example.myapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.app.Fragment
@@ -11,6 +12,7 @@ import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
+@Suppress("IMPLICIT_CAST_TO_ANY")
 class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,8 +65,16 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
                 Main2Activity ()
             }
 
+            R.id.nav_inicio -> {
+                main_game ()
+            }
+
             R.id.nav_puntos -> {
                 main_game ()
+            }
+
+            R.id.nav_guide -> {
+                jugar ()
             }
 
             R.id.nav_salir -> {
@@ -91,6 +101,11 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
 
     private fun salir() {
         this.finish()
+    }
+
+    private fun jugar() {
+        val intent = Intent(this, juego::class.java)
+        startActivity(intent)
     }
 
 }

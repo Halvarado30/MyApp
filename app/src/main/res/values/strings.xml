@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyApp</string>
+    <string name="app_name">Juego</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">PPTLS</string>
@@ -15,6 +15,29 @@
 
     <!-- Pantalla inicio -->
     <string name="app_logo">LogoApp</string>
+    <string name="bienvenida">Bienvenido(a) a</string>
 
+    <!-- Pantalla de opciones de juego -->
+    <string name="turnos">¿Cuántos turnos desea jugar?</string>
+    <string name="tres_turnos">3</string>
+    <string name="cinco_turnos">5</string>
+    <string name="siete_turnos">7</string>
+
+    <!-- juego -->
+    <string name="puntaje">Puntos:</string>
+    <string name="indicacion">Opción del Jugador:</string>
+    <string name="vsjugada">VS</string>
+    <string name="parte_IA">IA</string>
+    <string name="indicacion2">Presione su opción:</string>
+    <string name="opt_jugador">opción jugador</string>
+    <string name="opt_IA">opción IA</string>
+
+    <!-- Opciones de botones -->
+    <string name="exitCross">X</string>
+    <string name="piedra">PIEDRA</string>
+    <string name="papel">PAPEL</string>
+    <string name="tijera">TIJERA</string>
+    <string name="lagartija">LAGARTIJA</string>
+    <string name="spock">SPOCK</string>
 
 </resources>
