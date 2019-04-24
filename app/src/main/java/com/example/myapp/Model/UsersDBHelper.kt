@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteConstraintException
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
-import java.util.*
+import kotlin.collections.ArrayList
 import com.example.myapp.Model.UserModel as UserModel
 
 class UsersDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
@@ -62,8 +62,8 @@ class UsersDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,
 
 
     @SuppressLint("Recycle")
-    fun readAllUsers(nombre: String): ArrayList<com.example.pptls.Model.UserModel> {
-        val users = ArrayList<com.example.pptls.Model.UserModel>()
+    fun readAllUsers(nombre: String) : ArrayList<com.example.myapp.Model.UserModel> {
+        val users = ArrayList<com.example.myapp.Model.UserModel>()
         val db = writableDatabase
         val cursor: Cursor?
         try {
@@ -84,7 +84,7 @@ class UsersDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,
                 nombre = cursor.getString(cursor.getColumnIndex(DBContract.UserEntry.COLUMN_NOMBRE))
                 puntaje = cursor.getInt(cursor.getColumnIndex(DBContract.UserEntry.COLUMN_PUNTOS))
 
-                users.add(com.example.pptls.Model.UserModel(nombre, puntaje))
+                users.add(com.example.myapp.Model.UserModel(nombre, puntaje))
                 cursor.moveToNext()
             }
         }
@@ -93,8 +93,8 @@ class UsersDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,
 
 
     @SuppressLint("Recycle")
-    fun Todos(): ArrayList<com.example.pptls.Model.UserModel> {
-        val users = ArrayList<com.example.pptls.Model.UserModel>()
+    fun Todos(): ArrayList<com.example.myapp.Model.UserModel> {
+        val users = ArrayList<com.example.myapp.Model.UserModel>()
         val db = writableDatabase
         val cursor: Cursor?
         try {
@@ -115,7 +115,7 @@ class UsersDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,
                 nombre = cursor.getString(cursor.getColumnIndex(DBContract.UserEntry.COLUMN_NOMBRE))
                 puntaje = cursor.getInt(cursor.getColumnIndex(DBContract.UserEntry.COLUMN_PUNTOS))
 
-                users.add(com.example.pptls.Model.UserModel(nombre, puntaje))
+                users.add(com.example.myapp.Model.UserModel(nombre, puntaje))
                 cursor.moveToNext()
             }
         }

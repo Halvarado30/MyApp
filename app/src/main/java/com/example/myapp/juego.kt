@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
+import com.example.myapp.Model.UsersDBHelper
 import kotlinx.android.synthetic.main.activity_juego.*
 
 @Suppress("DEPRECATED_IDENTITY_EQUALS")
@@ -21,9 +22,13 @@ class juego : AppCompatActivity(), View.OnClickListener{
     private var lizard: Button? = null
     private var spock: Button? = null
 
+    var existe: Boolean = false
+
 
     var  PuntoMio: Int = 0
     var  PuntoTelefono: Int = 0
+
+    var nombreJugador: String? = null
 
     var images = intArrayOf(R.drawable.piedra, R.drawable.papel, R.drawable.tijera, R.drawable.lagartija, R.drawable.spock)
     var userinput = 0
@@ -33,6 +38,16 @@ class juego : AppCompatActivity(), View.OnClickListener{
         super.onCreate(savedInstanceState)
         
         setContentView(R.layout.activity_juego)
+
+
+        existe=false
+
+        val jugadores = UsersDBHelper.readAllUsers(nombreJugador.toString())
+        jugadores.forEach {
+            PuntoMio = it.puntos
+            PuntoTelefono = it.puntos
+            existe = true
+        }
         input = findViewById(R.id.iv_input)
         output = findViewById(R.id.iv_output)
         rock = findViewById(R.id.btn_piedra)

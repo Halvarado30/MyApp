@@ -1,4 +1,4 @@
-package com.example.pptls.Model
+package com.example.myapp.Model
 
 
 import android.provider.BaseColumns
