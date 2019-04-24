@@ -74,7 +74,7 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
             }
 
             R.id.nav_guide -> {
-                jugar ()
+                instruction ()
             }
 
             R.id.nav_salir -> {
@@ -103,8 +103,8 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
         this.finish()
     }
 
-    private fun jugar() {
-        val intent = Intent(this, juego::class.java)
+    private fun instruction() {
+        val intent = Intent(this, Instrucciones::class.java)
         startActivity(intent)
     }
 

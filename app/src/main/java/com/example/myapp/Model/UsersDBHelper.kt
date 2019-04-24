@@ -1,4 +1,4 @@
-package com.example.pptls.Model
+package com.example.myapp.Model
 
 import android.annotation.SuppressLint
 import android.content.ContentValues
@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
 import java.util.*
-import com.example.pptls.Model.UserModel as UserModel
+import com.example.myapp.Model.UserModel as UserModel
 
 class UsersDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
     override fun onCreate(db: SQLiteDatabase) {

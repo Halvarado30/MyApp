@@ -17,15 +17,22 @@ class main_game : AppCompatActivity(), View.OnClickListener  {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_game)
 
-
-        // val botonJugar: Button = findViewById(R.id.btninicio)
         val boton3: Button = findViewById(R.id.btntres)
         val boton5: Button = findViewById(R.id.btncinco)
         val boton7: Button = findViewById(R.id.btnsiete)
 
-        boton3.setOnClickListener { iniciarJuego("3") }
-        boton5.setOnClickListener { iniciarJuego("5") }
-        boton7.setOnClickListener { iniciarJuego("7") }
+        boton3.setOnClickListener {
+            iniciarJuego("3")
+            this.finish()
+        }
+        boton5.setOnClickListener {
+            iniciarJuego("5")
+            this.finish()
+        }
+        boton7.setOnClickListener {
+            iniciarJuego("7")
+            this.finish()
+        }
 
         btnExit2.setOnClickListener {
             salir()

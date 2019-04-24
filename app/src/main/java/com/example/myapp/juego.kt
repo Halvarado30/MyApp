@@ -21,6 +21,10 @@ class juego : AppCompatActivity(), View.OnClickListener{
     private var lizard: Button? = null
     private var spock: Button? = null
 
+
+    var  PuntoMio: Int = 0
+    var  PuntoTelefono: Int = 0
+
     var images = intArrayOf(R.drawable.piedra, R.drawable.papel, R.drawable.tijera, R.drawable.lagartija, R.drawable.spock)
     var userinput = 0
 
@@ -166,6 +170,7 @@ class juego : AppCompatActivity(), View.OnClickListener{
         Toast.makeText(applicationContext, "Seleccione otra opción", Toast.LENGTH_SHORT).show()
         if (valor == obtenerValor()){
             jugar()
+            this.finish()
         }
     }
 

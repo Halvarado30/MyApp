@@ -40,4 +40,10 @@
     <string name="lagartija">LAGARTIJA</string>
     <string name="spock">SPOCK</string>
 
+
+    <!-- Instrucciones -->
+    <string name="next">SIGUIENTE</string>
+    <string name="previous">ANTERIOR</string>
+    <string name="instruccion">INSTRUCCIONES</string>
+
 </resources>
