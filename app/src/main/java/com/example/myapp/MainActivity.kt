@@ -70,7 +70,7 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
             }
 
             R.id.nav_puntos -> {
-                inicioJuego ()
+                score ()
             }
 
             R.id.nav_guide -> {
@@ -108,14 +108,16 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
         startActivity(intent)
     }
 
-    private fun inicioJuego(){
-        val intent = Intent(this, main_game::class.java)
-        startActivity(intent)
-    }
-
     private fun name(){
         val intent = Intent(this, Registro_usuario::class.java)
         startActivity(intent)
     }
+
+    private fun score(){
+        val intent = Intent(this, CargaPuntaje2::class.java)
+        startActivity(intent)
+    }
+
+
 }
 

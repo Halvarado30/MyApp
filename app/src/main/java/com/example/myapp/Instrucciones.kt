@@ -67,5 +67,6 @@ class Instrucciones : AppCompatActivity() {
     private fun jugar() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
+        this.finish()
     }
 }

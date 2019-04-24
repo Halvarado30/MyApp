@@ -4,6 +4,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import kotlinx.android.synthetic.main.activity_juego.*
 import kotlinx.android.synthetic.main.activity_registro_usuario.*
 
 class Registro_usuario : AppCompatActivity() {
@@ -23,6 +24,26 @@ class Registro_usuario : AppCompatActivity() {
             intent.putExtra("nombre", nombreg)
             this.startActivity(intent)
         }
-        siguiente.setOnClickListener { jugar() }
+        btnExit3.setOnClickListener {
+            jugarA()
+            this.finish()
+        }
+        siguiente.setOnClickListener {
+            jugar()
+            this.finish()
+        }
+
+
     }
+
+    // Bloquear el funcionamiento del botón físico de retroceso
+    override fun onBackPressed() {
+
+    }
+
+    private fun jugarA() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+    }
+
 }

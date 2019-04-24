@@ -1,5 +1,6 @@
 package com.example.myapp
 
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -23,8 +24,11 @@ class juego : AppCompatActivity(), View.OnClickListener{
     private var lizard: Button? = null
     private var spock: Button? = null
 
+    var user_score: Int = 0
+    var ia_score: Int = 0
     var existe: Boolean = false
 
+    var strTipo:String? = null
 
     var  PuntoMio: Int = 0
     var  PuntoTelefono: Int = 0
@@ -34,48 +38,14 @@ class juego : AppCompatActivity(), View.OnClickListener{
     var images = intArrayOf(R.drawable.piedra, R.drawable.papel, R.drawable.tijera, R.drawable.lagartija, R.drawable.spock)
     var userinput = 0
 
-    lateinit var UsersDBHelper : UsersDBHelper
+    private fun obtenerNombre() {
+        val objectIntent: Intent = intent
+        val nombre: String = objectIntent.getStringExtra("nombre")
+        nombreJugador = nombre
 
-    override fun onCreate(savedInstanceState: Bundle?)  {
-
-        super.onCreate(savedInstanceState)
-        
-        setContentView(R.layout.activity_juego)
-
-
-        existe=false
-
-        val jugadores = UsersDBHelper.readAllUsers(nombreJugador.toString())
-        jugadores.forEach {
-            PuntoMio = it.puntos
-            PuntoTelefono = it.puntos
-            existe = true
-        }
-        input = findViewById(R.id.iv_input)
-        output = findViewById(R.id.iv_output)
-        rock = findViewById(R.id.btn_piedra)
-        paper = findViewById(R.id.btn_papel)
-        scissors = findViewById(R.id.btn_tijera)
-        lizard = findViewById(R.id.btn_lagartija)
-        spock = findViewById(R.id.btn_spock)
-
-        rock?.setOnClickListener(this)
-        paper?.setOnClickListener(this)
-        scissors?.setOnClickListener(this)
-        lizard?.setOnClickListener(this)
-        spock?.setOnClickListener(this)
-
-        btnExit.setOnClickListener {
-            jugar()
-            this.finish()
-        }
-
+        UsersDBHelper = UsersDBHelper(this)
     }
-
-    // Bloquear el funcionamiento del botón físico de retroceso
-    override fun onBackPressed() {
-
-    }
+     var UsersDBHelper = UsersDBHelper(this)
 
     // Función encargada de mostrar la opción del jugador al presionar cualquiera
     // de los 5 botones para dar inicio a la jugada
@@ -126,50 +96,70 @@ class juego : AppCompatActivity(), View.OnClickListener{
             showResult(2)
         } else if (userinput === 1 && imageId == 1) {
             showResult(0)
+            ia_score++
         } else if (userinput === 1 && imageId == 2) {
             showResult(1)
+            user_score++
         } else if (userinput == 1 && imageId == 3){
             showResult(1)
+            user_score++
         } else if (userinput == 1 && imageId == 4){
             showResult(0)
+            ia_score++
         } else if (userinput === 2 && imageId == 0) {  // Jugadas-Papel
             showResult(1)
+            user_score++
         } else if (userinput === 2 && imageId == 1) {
             showResult(2)
         } else if (userinput === 2 && imageId == 2) {
             showResult(0)
+            ia_score++
         } else if (userinput === 2 && imageId == 3) {
             showResult(0)
+            ia_score++
         } else if (userinput === 2 && imageId == 4) {
             showResult(1)
+            user_score++
         } else if (userinput === 3 && imageId == 0) { // Jugadas-Tijeras
             showResult(0)
+            ia_score++
         } else if (userinput === 3 && imageId == 1) {
             showResult(1)
+            user_score++
         } else if (userinput === 3 && imageId == 2) {
             showResult(2)
         } else if (userinput === 3 && imageId == 3) {
             showResult(1)
+            user_score++
         } else if (userinput === 3 && imageId == 4) {
             showResult(0)
+            ia_score++
         } else if (userinput === 4 && imageId == 0) { // Jugadas-Lagartija
             showResult(0)
+            ia_score++
         } else if (userinput === 4 && imageId == 1) {
             showResult(1)
+            user_score++
         } else if (userinput === 4 && imageId == 2) {
             showResult(0)
+            ia_score++
         } else if (userinput === 4 && imageId == 3) {
             showResult(2)
         } else if (userinput === 4 && imageId == 4) {
             showResult(1)
+            user_score++
         } else if (userinput === 5 && imageId == 0) { // Jugadas-spock
             showResult(1)
+            user_score++
         } else if (userinput === 5 && imageId == 1) {
             showResult(0)
+            ia_score++
         } else if (userinput === 5 && imageId == 2) {
             showResult(1)
+            user_score++
         } else if (userinput === 5 && imageId == 3) {
             showResult(0)
+            ia_score++
         } else if (userinput === 5 && imageId == 4) {
             showResult(2)
         }
@@ -186,6 +176,7 @@ class juego : AppCompatActivity(), View.OnClickListener{
         }
         valor ++
         Toast.makeText(applicationContext, "Seleccione otra opción", Toast.LENGTH_SHORT).show()
+        Toast.makeText(applicationContext, nombreJugador.toString(), Toast.LENGTH_SHORT).show()
         if (valor == obtenerValor()){
             jugar()
             this.finish()
@@ -198,10 +189,71 @@ class juego : AppCompatActivity(), View.OnClickListener{
         val valorout: Int = nombre.toInt()
         return valorout
     }
+
+
     private fun jugar() {
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, CargaPuntaje2::class.java)
         startActivity(intent)
     }
+
+    override fun onCreate(savedInstanceState: Bundle?)  {
+
+        super.onCreate(savedInstanceState)
+
+        setContentView(R.layout.activity_juego)
+
+        input = findViewById(R.id.iv_input)
+        output = findViewById(R.id.iv_output)
+        rock = findViewById(R.id.btn_piedra)
+        paper = findViewById(R.id.btn_papel)
+        scissors = findViewById(R.id.btn_tijera)
+        lizard = findViewById(R.id.btn_lagartija)
+        spock = findViewById(R.id.btn_spock)
+
+        rock?.setOnClickListener(this)
+        paper?.setOnClickListener(this)
+        scissors?.setOnClickListener(this)
+        lizard?.setOnClickListener(this)
+        spock?.setOnClickListener(this)
+
+        obtenerNombre()
+        btnExit.setOnClickListener {
+            jugar()
+            this.finish()
+        }
+
+        existe=false
+            val jugadores:ArrayList<UserModel> = UsersDBHelper.readAllUsers(nombreJugador.toString())
+        jugadores.forEach {
+            PuntoMio = it.puntos
+            PuntoTelefono = it.puntos
+           existe = true
+        }
+
+        val sharedPref = getPreferences(Context.MODE_PRIVATE)
+
+
+        strTipo=sharedPref.getString(getString(R.string.type),"mobile")
+
+        guardarDato()
+    }
+
+    private fun guardarDato(){
+        PuntoMio = user_score
+        PuntoTelefono = ia_score
+        if(!existe){
+            UsersDBHelper.insertUser(UserModel(nombre = nombreJugador.toString(), puntos = PuntoMio))
+        }else{
+            UsersDBHelper.updateUser(UserModel(nombre = nombreJugador.toString(), puntos = PuntoMio))
+        }
+    }
+
+
+    // Bloquear el funcionamiento del botón físico de retroceso
+    override fun onBackPressed() {
+
+    }
+
 
 
 }

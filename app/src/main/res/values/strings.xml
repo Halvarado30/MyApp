@@ -50,4 +50,6 @@
     <string name="q_username">Ingrese su nombre:</string>
     <string name="hint_string">nombre</string>
 
+    <string name="type">type</string>
+
 </resources>

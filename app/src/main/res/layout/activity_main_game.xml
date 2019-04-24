@@ -13,7 +13,7 @@
             android:layout_height="34dp"
             android:id="@+id/btnExit2" android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" android:textSize="24sp" android:textStyle="bold"
+            android:textSize="24sp" android:textStyle="bold"
             android:background="?attr/selectableItemBackgroundBorderless" android:textColor="@color/textoApp"/>
     <TextView
             android:text="@string/turnos"

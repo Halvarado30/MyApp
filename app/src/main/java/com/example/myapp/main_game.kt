@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import com.example.myapp.Model.UsersDBHelper
 import kotlinx.android.synthetic.main.activity_main_game.*
 
 @Suppress("DEPRECATED_IDENTITY_EQUALS")
@@ -13,6 +14,16 @@ class main_game : AppCompatActivity(), View.OnClickListener  {
         TODO("not implemented")
     }
 
+    var nombreJugador: String? = null
+    var UsersDBHelper = UsersDBHelper(this)
+
+    private fun obtenerNombre() {
+        val objectIntent: Intent = intent
+        val nombre: String = objectIntent.getStringExtra("nombre")
+        nombreJugador = nombre
+
+        UsersDBHelper = UsersDBHelper(this)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_game)
@@ -21,17 +32,16 @@ class main_game : AppCompatActivity(), View.OnClickListener  {
         val boton5: Button = findViewById(R.id.btncinco)
         val boton7: Button = findViewById(R.id.btnsiete)
 
+        obtenerNombre()
+
         boton3.setOnClickListener {
             iniciarJuego("3")
-            this.finish()
         }
         boton5.setOnClickListener {
             iniciarJuego("5")
-            this.finish()
         }
         boton7.setOnClickListener {
             iniciarJuego("7")
-            this.finish()
         }
 
         btnExit2.setOnClickListener {
@@ -46,9 +56,11 @@ class main_game : AppCompatActivity(), View.OnClickListener  {
     }
 
     private fun iniciarJuego(variable: String) {
-        val intent = Intent(this, juego::class.java)
+        val intent = Intent (this, juego::class.java)
         intent.putExtra("variableI", variable)
+        intent.putExtra("nombre", nombreJugador)
         startActivity(intent)
+        this.finish()
     }
 
     private fun salir() {

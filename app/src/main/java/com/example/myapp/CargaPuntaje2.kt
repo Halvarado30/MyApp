@@ -1,6 +1,7 @@
 package com.example.myapp
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
@@ -21,11 +22,20 @@ class CargaPuntaje2 : AppCompatActivity() {
 
         val jugadores = UsersDBHelper.readAllUsers(nombreJugador.toString())
         jugadores.forEach {
-            val tv_user = TextView(this)
-            tv_user.textSize = 30F
-            tv_user.text = it. nombre + "     " + it. puntos .toString()
-            this.Carga.addView(tv_user)
+            val tvdatos = TextView(this)
+            tvdatos.textSize = 30F
+            tvdatos.text = it. nombre + "     " + it. puntos .toString()
         }
 
+        btnExit.setOnClickListener {
+            jugar()
+            this.finish()
+        }
+
+    }
+
+    private fun jugar() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 }
